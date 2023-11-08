@@ -5,7 +5,7 @@
     <classes>
       <class name="com.w2a.testcases.RegistredTestcases">
         <methods>
-          <include name="launchsetup"/>
+          <include name="launchbrowser"/>
         </methods>
       </class> <!-- com.w2a.testcases.RegistredTestcases -->
     </classes>

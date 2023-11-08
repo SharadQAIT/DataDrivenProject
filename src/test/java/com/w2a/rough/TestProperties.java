@@ -8,8 +8,8 @@ public class TestProperties {
 	public static void main(String[] args) throws IOException  
 	   {
 		   
-		   String filepath= "./src/test/resources/properties/Config.properties"; 
-		   String filepath1= "./src/test/resources/properties/OR.properties"; 
+		   String filepath= "./src/test/resources/Properties/Config.properties"; 
+		   String filepath1= "./src/test/resources/Properties/OR.properties"; 
 
 		   //System.out.println(System.getProperty("user.dir")); // It's project path
 		   Properties Config=new Properties();

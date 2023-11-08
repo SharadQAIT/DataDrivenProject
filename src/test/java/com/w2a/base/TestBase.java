@@ -1,9 +1,11 @@
 package com.w2a.base;
 
-import org.apache.logging.log4j.*;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -19,21 +21,22 @@ public class TestBase {
 
 	public static Properties Config = new Properties();
 	public static Properties OR = new Properties();
-	// public static Logger log = LogManager.getLogger(TestBase.class.getName());
+	// private static final Logger logger = LogManager.getLogger(TestBase.class);
 
-	WebDriver driver;
+	public static WebDriver driver;
 
 	@SuppressWarnings("resource")
-	@Test
-	public void Registration() throws IOException {
+	public void Registration() throws IOException
 
-		String filepath = "./src/test/resources/properties/Config.properties";
+	{
+
+		String filepath = "./src/test/resources/Properties/Config.properties";
 
 		FileInputStream fis = new FileInputStream(filepath);
 		fis = new FileInputStream(filepath);
 		Config.load(fis);
 		Properties OR = new Properties();
-		String filepath1 = "./src/test/resources/properties/OR.properties";
+		String filepath1 = "./src/test/resources/Properties/OR.properties";
 		fis = new FileInputStream(filepath1);
 		OR.load(fis);
 
@@ -49,7 +52,12 @@ public class TestBase {
 			System.setProperty("Webdriver.chrome.driver", "chromedriver.exe");
 			driver = new ChromeDriver(options);
 			driver.manage().window().maximize();
+			System.out.println("Chrome Browser Successfully launch..");
+			// logger.info("Starting your Selenium test...");
 			driver.get(Config.getProperty("testsiteurl"));
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
+			System.out.println("Omani Staging URL successfully luanch..");
+			// logger.info("The chrome is launching");
 
 		} else if (Config.getProperty("browser").equals("firefox")) {
 			// WebDriverManager.firefoxdriver().setup();
@@ -70,17 +78,18 @@ public class TestBase {
 			driver.manage().window().maximize();
 			driver.get(Config.getProperty("testsiteurl"));
 		}
-
 	}
 
-	public boolean isElementpresent(By by) {
+	/*
+	 * 
+	 * public boolean presenceOfElementLocated(By by) {
+	 * 
+	 * try { driver.findElements(by); System.out.println("The element is presence");
+	 * return true;
+	 * 
+	 * } catch (NoSuchElementException e) { return false; } }
+	 * 
+	 *
+	 */
 
-		try {
-			driver.findElement(by);
-			return true;
-
-		} catch (NoSuchElementException e) {
-			return false;
-		}
-	}
 }

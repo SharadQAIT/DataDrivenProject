@@ -3,7 +3,7 @@
 <suite name="Data Driven Basics">
   <test thread-count="5" name="Registration">
     <classes>
-      <class name="com.w2a.testcases.RegistredTestcases"/>
+      <class name="com.w2a.testcases.LoginTestcase"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
