@@ -4,11 +4,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -16,6 +19,8 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Test;
+
+import com.excel.utility.Xls_Reader;
 
 public class TestBase {
 
@@ -25,8 +30,8 @@ public class TestBase {
 
 	public static WebDriver driver;
 
-	@SuppressWarnings("resource")
-	public void Registration() throws IOException
+	@SuppressWarnings({ "resource", "deprecation" })
+	public void Login() throws IOException
 
 	{
 
@@ -58,6 +63,29 @@ public class TestBase {
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 			System.out.println("Omani Staging URL successfully luanch..");
 			// logger.info("The chrome is launching");
+
+			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+
+			WebElement userName = driver.findElement(By.id(OR.getProperty("Email_id")));
+			WebElement pwd = driver.findElement(By.id(OR.getProperty("Pwd_id")));
+
+			Xls_Reader reader = new Xls_Reader("D:\\Eclipse Workspace\\Selenium_Tutorials\\DataDrivenFramework2\\src\\test\\resources\\excel\\SampleExcel.xlsx");
+			String sheetName = "login";
+
+			int rowCount = reader.getRowCount(sheetName);
+
+			for (int rowNum = 2; rowNum <= rowCount; rowNum++) {
+				String loginId = reader.getCellData(sheetName, "Email_id", rowNum);
+				String passsword = reader.getCellData(sheetName, "Pwd_id", rowNum);
+
+				System.out.println(loginId + " " + passsword);
+
+				userName.clear();
+				userName.sendKeys(loginId);
+
+				pwd.clear();
+				pwd.sendKeys(passsword);
+			}
 
 		} else if (Config.getProperty("browser").equals("firefox")) {
 			// WebDriverManager.firefoxdriver().setup();

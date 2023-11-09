@@ -14,7 +14,8 @@ public class LoginTestcase extends TestBase {
 	@Test(priority = 0)
 	public void launchbrowser() throws IOException, InterruptedException {
 		TestBase R1 = new TestBase();
-		R1.Registration();
+		R1.Login();
 
 	}
 }
+

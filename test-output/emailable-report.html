@@ -9,10 +9,22 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Data Driven Basics</th></tr>
-<tr><td><a href="#t0">Registration</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">4,336</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Registration</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">5,943</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Data Driven Basics</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Registration &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.w2a.testcases.RegistredTestcases</td><td><a href="#m0">launchbrowser</a></td><td rowspan="1">1699428981702</td><td rowspan="1">4302</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Data Driven Basics</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Registration &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.w2a.testcases.LoginTestcase</td><td><a href="#m0">launchbrowser</a></td><td rowspan="1">1699536920982</td><td rowspan="1">5908</td></tr></tbody>
 </table>
-<h2>Registration</h2><h3 id="m0">com.w2a.testcases.RegistredTestcases#launchbrowser</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Registration</h2><h3 id="m0">com.w2a.testcases.LoginTestcase#launchbrowser</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NoSuchMethodError: &apos;byte[] org.apache.poi.util.IOUtils.toByteArray(java.io.InputStream, int, int)&apos;
+	at org.apache.poi.openxml4j.util.ZipArchiveFakeEntry.&lt;init&gt;(ZipArchiveFakeEntry.java:82)
+	at org.apache.poi.openxml4j.util.ZipInputStreamZipEntrySource.&lt;init&gt;(ZipInputStreamZipEntrySource.java:98)
+	at org.apache.poi.openxml4j.opc.ZipPackage.&lt;init&gt;(ZipPackage.java:132)
+	at org.apache.poi.openxml4j.opc.OPCPackage.open(OPCPackage.java:319)
+	at org.apache.poi.ooxml.util.PackageHelper.open(PackageHelper.java:59)
+	at org.apache.poi.xssf.usermodel.XSSFWorkbook.&lt;init&gt;(XSSFWorkbook.java:290)
+	at org.apache.poi.xssf.usermodel.XSSFWorkbook.&lt;init&gt;(XSSFWorkbook.java:286)
+	at com.excel.utility.Xls_Reader.&lt;init&gt;(Xls_Reader.java:38)
+	at com.w2a.base.TestBase.Login(TestBase.java:72)
+	at com.w2a.testcases.LoginTestcase.launchbrowser(LoginTestcase.java:17)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

@@ -3,11 +3,11 @@
 <suite name="Failed suite [Data Driven Basics]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Registration(failed)">
     <classes>
-      <class name="com.w2a.testcases.RegistredTestcases">
+      <class name="com.w2a.testcases.LoginTestcase">
         <methods>
           <include name="launchbrowser"/>
         </methods>
-      </class> <!-- com.w2a.testcases.RegistredTestcases -->
+      </class> <!-- com.w2a.testcases.LoginTestcase -->
     </classes>
   </test> <!-- Registration(failed) -->
 </suite> <!-- Failed suite [Data Driven Basics] -->
